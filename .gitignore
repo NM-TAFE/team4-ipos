@@ -107,3 +107,13 @@ Pipfile.lock
 
 # PEP 582; used by e.g. github.com/David-OConnor/pyflow
 __pypackages__/
+
+# Visual Studio / IDE
+.vs/
+
+# Python
+__pycache__/
+*.pyc
+
+# Local persistent score file (generated at runtime)
+score.json
