@@ -13,6 +13,7 @@ SCORE_FILE = "score.json"
 score = {"X": 0, "O": 0, "draws": 0}
 result_recorded = False
 
+
 def load_score():
     """Load score from score.json if it exists."""
     global score
@@ -38,15 +39,15 @@ load_score()
 
 
 def check_winner():
-    # Winning combinations
+    # Winning moves
     win_combinations = [
         (0, 1, 2), (3, 4, 5), (6, 7, 8),  # Horizontal
         (0, 3, 6), (1, 4, 7), (2, 5, 8),  # Vertical
         (0, 4, 8), (2, 4, 6)  # Diagonal
     ]
-    for combination in win_combinations:
-        if board[combination[0]] == board[combination[1]] == board[combination[2]] != ' ':
-            return board[combination[0]]
+    for move in win_combinations:
+        if board[move[0]] == board[move[1]] == board[move[2]] != ' ':
+            return board[move[0]]
     return None
 
 
@@ -108,6 +109,7 @@ def reset():
     current_player = 'X'
     result_recorded = False
     return redirect(url_for('index'))
+
 
 if __name__ == '__main__':
     app.run(debug=True)
