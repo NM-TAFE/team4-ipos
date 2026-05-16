@@ -4,7 +4,6 @@ class TicTacToeGame:
         self.current_player = 'X'
         self.result_recorded = False
 
-
     def check_winner(self):
         # Winning combinations
         win_combinations = [
@@ -12,15 +11,13 @@ class TicTacToeGame:
             (0, 3, 6), (1, 4, 7), (2, 5, 8),  # Vertical
             (0, 4, 8), (2, 4, 6)  # Diagonal
         ]
-        for combination in win_combinations:
-            if self.board[combination[0]] == self.board[combination[1]] == self.board[combination[2]] != ' ':
-                return self.board[combination[0]]
+        for a, b, c in win_combinations:
+            if self.board[a] == self.board[b] == self.board[c] != ' ':
+                return self.board[a]
         return None
-
 
     def check_draw(self):
         return ' ' not in self.board and self.check_winner() is None
-
 
     def play_move(self, cell):
         if self.board[cell] != ' ':
@@ -39,4 +36,3 @@ class TicTacToeGame:
         self.board = [' '] * 9
         self.current_player = 'X'
         self.result_recorded = False
-

@@ -3,6 +3,7 @@ import os
 
 SCORE_FILE = "score.json"
 
+
 def load_score():
     """Load score from score.json if it exists."""
     if os.path.exists(SCORE_FILE):
@@ -12,8 +13,9 @@ def load_score():
 
         except (OSError, json.JSONDecodeError, ValueError):
             pass
-            
+
     return {"X": 0, "O": 0, "draws": 0}
+
 
 def save_score(score):
     """Save score to score.json."""

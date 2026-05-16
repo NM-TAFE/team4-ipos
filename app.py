@@ -8,6 +8,7 @@ app = Flask(__name__)
 game = TicTacToeGame()
 score = load_score()
 
+
 @app.route('/')
 def index():
     return render_template(
@@ -22,13 +23,12 @@ def index():
 
 @app.route('/play/<int:cell>')
 def play(cell):
-    global score
 
     game.play_move(cell)
 
     winner = game.check_winner()
     draw = game.check_draw()
-    
+
     # Record result once when the game ends
     if (winner or draw) and not game.result_recorded:
         if winner == "X":
